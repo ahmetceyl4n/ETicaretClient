@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
-import { LayoutComponent } from './admin/layout/layout.component';
-import { LayoutModule } from './admin/layout/layout.module';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +13,7 @@ import { LayoutModule } from './admin/layout/layout.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AdminModule,
     UiModule,
