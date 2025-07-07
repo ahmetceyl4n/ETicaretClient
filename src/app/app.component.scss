@@ -1,0 +1,43 @@
+.navbar {
+  background-color: #212529; // Koyu arka plan (dark mode uyumlu)
+
+  .nav-link {
+    position: relative;
+    color: #dee2e6; // Pasif link rengi
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f8f9fa; // Soft beyaz çizgi
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: #ffffff;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.active {
+      color: #ffffff !important;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .btn {
+    margin-left: 8px;
+  }
+}
