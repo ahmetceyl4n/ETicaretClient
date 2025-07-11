@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -12,3 +13,8 @@ export class AppComponent {
     
   }
 }
+
+
+$.get("https://localhost:7187/api/Products", function (data) {
+  console.log(data);
+});

@@ -7,6 +7,7 @@ import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,9 +22,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AppRoutingModule,
     AdminModule,
     UiModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'baseUrl', useValue: 'https://localhost:7187/api', multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
