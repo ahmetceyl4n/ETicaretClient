@@ -1,0 +1,48 @@
+.products-create {
+  width: 100%;
+  height: 400px;
+  margin: 16px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #f6f8fc; // Sidebar ve ana arka plana yakın açık gri
+  display: flex;
+
+  mat-drawer {
+    background: #23272f; // Sidebar ile uyumlu koyu renk
+    color: #fff;
+    padding: 24px 16px;
+    min-width: 220px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.06);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  mat-drawer-content {
+    background: #fff; // Ana içerik gibi beyaz
+    color: #23272f;   // Sidebar yazı rengiyle uyumlu koyu renk
+    padding: 32px 24px;
+    flex: 1;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    min-width: 0;
+    font-size: 1.05rem;
+  }
+}
+
+
+
+// Responsive düzen
+@media (max-width: 600px) {
+  .products-create {
+    flex-direction: column;
+    height: auto;
+
+    mat-drawer, mat-drawer-content {
+      border-radius: 0;
+      min-width: 0;
+      padding: 16px 8px;
+    }
+  }
+}

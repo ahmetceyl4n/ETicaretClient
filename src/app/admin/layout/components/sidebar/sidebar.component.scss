@@ -3,32 +3,43 @@
   background: transparent;
 }
 
-.sidebar-nav a[mat-list-item] {
-  color: #fff !important;
-  font-weight: 500;
-  font-size: 15px;
-  padding: 12px 20px;
-  border-radius: 6px;
-  margin: 4px 8px;
-  display: flex;
-  align-items: center;
+:host ::ng-deep .sidebar-nav a.mat-list-item {
+  color: #fff !important; // Tüm yazılar beyaz
+  font-size: 16px;
   transition: background 0.2s, color 0.2s;
-  text-decoration: none;
 }
 
-.sidebar-nav a[mat-list-item]:hover,
-.sidebar-nav a[mat-list-item].active {
-  background-color: #334155;
-  color: #ffca28 !important;
+:host ::ng-deep .sidebar-nav a.mat-list-item:hover,
+:host ::ng-deep .sidebar-nav a.mat-list-item.active {
+  color: #ffe082 !important; // Hover ve aktifte sarımsı
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-nav a[mat-list-item].active {
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(51, 65, 85, 0.08);
+  border-left: 4px solid #ffe082;
+}
+
+.sidebar-title {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-left: 16px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
 }
 
 .sidebar-nav a mat-icon {
   margin-right: 10px;
   color: #fff;
   font-size: 20px;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .sidebar-nav a.mat-list-item,
+:host ::ng-deep .sidebar-nav a.mat-list-item span,
+:host ::ng-deep .sidebar-nav a.mat-list-item .mat-list-item-content,
+:host ::ng-deep .sidebar-nav a.mat-list-item .mat-list-text {
+  color: #fff !important;
 }
