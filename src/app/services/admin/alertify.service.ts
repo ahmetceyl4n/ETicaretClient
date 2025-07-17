@@ -5,18 +5,26 @@ declare var alertify: any;
   providedIn: 'root'
 })
 export class AlertifyService {
+  Position: any;
+  MessaageType: any;
+  success(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor() { }
 
   //message(message: string, messageType: MessaageType, position : Position = Position.TopCenter, delay : number = 3, dissmissOthers: boolean = false) {
-  message(options: Partial<AlertifyOptions>) {
-    alertify.set('notifier', 'position', options.position );
-    alertify.set('notifier', 'delay', options.delay);
-    alertify[options.messageType](options.message);
-    if (options.dissmissOthers) {
-      alertify.dismissAll();
+    message(message: string ,options: Partial<AlertifyOptions>) {
+      const delay = options.delay !== undefined ? options.delay : 5;
+      if(options.position)
+        alertify.set('notifier', 'position', options.position );
+      alertify.set('notifier', 'delay', delay);
+      console.log('Alertify delay:', delay);
+      if (options.dissmissOthers) {
+        alertify.dismissAll();
+      }
+      alertify[options.messageType || 'message'](message);
     }
-  }
 
   dissmiss() {
     alertify.dismissAll();
@@ -25,7 +33,7 @@ export class AlertifyService {
 }
 
 export class AlertifyOptions {
-  message: string ;
+  
   messageType: MessaageType = MessaageType.Message;
   position?: Position = Position.TopCenter;
   delay?: number  = 3;
