@@ -1,3 +1,4 @@
+import { coerceStringArray } from '@angular/cdk/coercion';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,13 +8,16 @@ import { List_Product } from 'src/app/contracts/list_product';
 import { AlertifyService, MessaageType, Position } from 'src/app/services/admin/alertify.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
 
+declare var $: any;
+
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent extends BaseComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'price', 'stock', 'createdDate', 'updatedDate'];
+  displayedColumns: string[] = ['name', 'price', 'stock', 'createdDate', 'updatedDate','edit','delete'];
   dataSource: MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -60,4 +64,7 @@ export class ListComponent extends BaseComponent implements OnInit {
   async pageChanged() {
     await this.getProducts();
   }
+
+  
+
 }
