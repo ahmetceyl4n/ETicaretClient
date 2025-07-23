@@ -9,10 +9,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
+    
     
   ],
   imports: [
@@ -23,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModule,
     UiModule,
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
     {provide: 'baseUrl', useValue: 'https://localhost:7187/api', multi: true}
