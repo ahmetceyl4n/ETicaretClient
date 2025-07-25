@@ -4,6 +4,8 @@ import { HttpClientService } from '../http-client.service';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AlertifyService, MessaageType, Position } from '../../admin/alertify.service';
 import { CustomToastrService, ToastrMessaageType, ToastrPosition } from '../../ui/custom-toastr.service';
+import { FileUploadDialogComponent } from 'src/app/dialogs/file-upload-dialog/file-upload-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-file-upload',
@@ -14,7 +16,8 @@ export class FileUploadComponent {
   constructor(
     private httpClientService: HttpClientService,
     private alertService: AlertifyService,
-    private customToastrService: CustomToastrService
+    private customToastrService: CustomToastrService,
+    private dialog: MatDialog
   ) { }
 
     public files: NgxFileDropEntry[];
@@ -31,8 +34,8 @@ export class FileUploadComponent {
 
       });
     }
-
-    this.httpClientService.post({
+    this.openDialog(() => {
+      this.httpClientService.post({
       controller: this.options.controller,
       action: this.options.action,
       queryString: this.options.queryString,
@@ -72,9 +75,25 @@ export class FileUploadComponent {
         });
         
       } 
-    })
+    });
+    });
+
+    
     
   }
+
+  openDialog(afterClosed : any): void {
+      const dialogRef = this.dialog.open(FileUploadDialogComponent, {width: '250px', 
+        
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === FileUploadDialogState.Yes) {
+          afterClosed();
+        }
+      });
+    }
+  
 
 }
 
@@ -87,3 +106,9 @@ export class FileUploadOptions {
   accept?: string;
   isAdminPage? : boolean = false;
 }
+
+export enum FileUploadDialogState { 
+  Yes = "Yes",
+  No = "No"
+}
+

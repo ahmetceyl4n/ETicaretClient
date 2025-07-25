@@ -27,9 +27,9 @@ export class CreateComponent extends BaseComponent {
     action: "upload",
     explanation: "Lütfen ürün dosyalarını yükleyiniz.",
     isAdminPage: true,
-    accept: ".png, .jpg, .jpeg"
+    accept: ".png, .jpg, .jpeg,"
   };
-  
+
   
 
 

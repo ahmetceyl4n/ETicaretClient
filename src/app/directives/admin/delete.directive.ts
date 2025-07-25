@@ -73,7 +73,7 @@ export class DeleteDirective {
     
   }
 
-   openDialog(afterClosed : any): void {
+  openDialog(afterClosed : any): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {width: '250px', 
       
     });
